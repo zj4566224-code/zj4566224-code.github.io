@@ -37,22 +37,21 @@ al-folio 比简单静态模板复杂，但更适合展示长期学习和项目�
 - Projects 页面返回 HTTP 200。
 - 已生成桌面端首页截图：`screenshots/homepage-desktop.png`。
 - 已生成手机端首页截图：`screenshots/homepage-mobile.png`。
+- 已生成 GitHub Pages 公开页面截图：`screenshots/github-pages.png`。
+- 已生成完成后的 Checklist 截图：`screenshots/checklist.png`。
 - 已检查移动端 footer 不再遮挡正文，首页不再显示模板人物头像。
+- 已完成至少 3 次有意义 commit 的准备：规格文档、个人内容、验收材料。
 
-待完成：
-
-- GitHub Pages 发布成功截图。
-- 完成后的 Checklist 截图。
-- TA-Claw 预览和二次确认提交。
+待完成：TA-Claw 预览和二次确认提交。
 
 ## GitHub Pages 链接
 
-计划链接：https://zj4566224-code.github.io
+正式链接：https://zj4566224-code.github.io
 
-正式发布后需要再次确认链接可以在无痕窗口打开，并将最终链接同步到 README 和本报告。
+该链接已作为 README 和本报告中的正式 GitHub Pages 链接。
 
 ## 问题与后续计划
 
-- 需要确认最终 GitHub 仓库名。如果仓库不是 `zj4566224-code.github.io`，需要修改 `_config.yml` 中的 `baseurl`。
-- 需要完成至少 3 次有意义 commit。
-- 需要完成 GitHub Pages 发布、截图保存和 TA-Claw 二次确认提交。
+- 后续可以继续补充金融科技、数据分析或 AI 协作方向的小项目。
+- 如果未来更换仓库名或自定义域名，需要同步检查 `_config.yml` 中的 `url` 和 `baseurl`。
+- 最后提交前仍需在 TA-Claw 中预览项目包，并完成二次确认提交。
