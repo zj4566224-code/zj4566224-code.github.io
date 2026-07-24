@@ -12,14 +12,21 @@ related_publications: false
 
 ## 项目目标
 
-- 用真实内容替换模板占位信息。
+- 用真实内容替换模板占位信息，避免保留模板作者姓名、示例项目和虚构经历。
 - 展示 Hero、About、Skills、Projects、Contact 五个基础区块。
-- 编写 PRD、Design、Checklist 和最终报告。
-- 发布到 GitHub Pages，并保留桌面端、手机端和部署成功证据。
+- 编写 PRD、Design、Checklist 和最终报告，让网站范围、设计选择和验收方式一致。
+- 发布到 GitHub Pages，并保留桌面端、手机端、公开页面和验收清单等关键证据。
+
+## 已完成内容
+
+- 将站点名称、公开身份、邮箱和 GitHub 链接改为 SSpongEE 的个人信息。
+- 将首页内容聚焦在“我什么都能学”和“金融与技术”方向。
+- 收敛导航，只保留本阶段需要展示的 About 和 Projects。
+- 建立 `docs/`、`report/` 和 `screenshots/` 目录，方便最终提交时复核过程。
 
 ## 当前状态
 
-进行中。基础内容已经开始改写，后续需要继续完成本地预览、移动端检查、截图保存、GitHub Pages 发布和 TA-Claw 提交。
+基础内容已完成，网站已进入发布和最终验收阶段。后续重点是补齐公开页面截图、完成 checklist 勾选、更新最终报告，并通过 TA-Claw 预览和二次确认提交。
 
 ## 个人判断
 
