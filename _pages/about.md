@@ -2,33 +2,47 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: 我什么都能学｜金融与技术方向
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image:
+  image_circular: false
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>GitHub: <a href="https://github.com/zj4566224-code">zj4566224-code</a></p>
+    <p>Email: <a href="mailto:zj4566224@gmail.com">zj4566224@gmail.com</a></p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: false
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: false
+  scrollable: true
+  limit: 5
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
+  scrollable: true
+  limit: 3
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+## About
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+你好，我是 SSpongEE。这个个人网站用于展示我的学习方向、项目记录和联系方式。我的主要兴趣是金融与技术，希望把金融知识、数据工具和 AI 协作方法结合起来，持续做出可验证、可复盘的小作品。
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+## Skills
+
+- 金融学习：关注金融科技、数字金融、风险控制和数据驱动的金融应用。
+- 技术工具：正在学习使用 GitHub、GitHub Pages、Markdown 和 AI Agent 完成规范化开发。
+- AI 协作：能够把目标拆成 PRD、设计说明、检查清单和验证证据，再让 AI 辅助执行。
+- 项目表达：重视内容真实、链接可访问、移动端可读和过程可追溯。
+
+## Projects
+
+- 个人网站规范化 AI 开发：基于 al-folio 模板，完成个人网站定位、内容改写、文档记录、GitHub Pages 发布和 TA-Claw 提交。
+
+更多项目会放在 [Projects]({{ '/projects/' | relative_url }}) 页面中。
+
+## Contact
+
+你可以通过 [GitHub](https://github.com/zj4566224-code) 或邮件 [zj4566224@gmail.com](mailto:zj4566224@gmail.com) 联系我。本站不会公开密码、课程邀请码、API Key、Token 或其他敏感信息。
