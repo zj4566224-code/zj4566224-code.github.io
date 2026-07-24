@@ -19,11 +19,11 @@
 
 ## GitHub Pages 链接
 
-计划发布地址：
+正式发布地址：
 
 https://zj4566224-code.github.io
 
-如果最终仓库不是 `zj4566224-code.github.io`，需要同步调整 `_config.yml` 中的 `baseurl`。
+该链接应可在无痕窗口或其他设备中公开访问。
 
 ## 本地预览
 
