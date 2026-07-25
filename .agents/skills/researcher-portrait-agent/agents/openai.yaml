@@ -1,0 +1,4 @@
+interface:
+  display_name: "学者论文画像 Agent"
+  short_description: "自动识别 GPU/CPU，生成论文卡片、研究画像与汇总 PDF"
+  default_prompt: "Use $researcher-portrait-agent to detect the best PDF route and create a validated scholar research portrait."
