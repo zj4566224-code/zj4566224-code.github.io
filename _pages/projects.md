@@ -5,7 +5,7 @@ permalink: /projects/
 description: 记录我在金融与技术方向的学习项目。
 nav: true
 nav_order: 1
-display_categories: [course]
+display_categories: [work, research, course]
 horizontal: false
 ---
 
