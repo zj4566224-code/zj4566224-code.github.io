@@ -1,4 +1,5 @@
-User-agent: *
-Disallow:
+User-Agent: *
+Allow: /
+Disallow: /private/
 
 Sitemap: https://zj4566224-code.github.io/sitemap.xml
