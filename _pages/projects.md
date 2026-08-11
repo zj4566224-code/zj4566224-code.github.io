@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: 记录我在金融与技术方向的学习项目。
+description: 金融科技、全栈开发与研究自动化项目。
 nav: true
 nav_order: 1
 display_categories: [work, research, course]

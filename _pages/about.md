@@ -2,15 +2,15 @@
 layout: about
 title: about
 permalink: /
-subtitle: 我什么都能学｜金融与技术方向
+subtitle: 金融科技本科生｜全栈应用开发 · AI Agent · 数据分析
 
 profile:
   align: right
-  image:
+  image: finwise-dashboard.png
   image_circular: false
   more_info: >
     <p>GitHub: <a href="https://github.com/zj4566224-code">zj4566224-code</a></p>
-    <p>Email: <a href="mailto:zj4566224@gmail.com">zj4566224@gmail.com</a></p>
+    <p>Email: <a href="mailto:2024290239@szu.edu.cn">2024290239@szu.edu.cn</a></p>
 
 selected_papers: false
 social: true
@@ -26,26 +26,33 @@ latest_posts:
   limit: 3
 ---
 
-## About
+## 我做什么
 
-你好，我是 SSpongEE。这个个人网站用于展示我的学习方向、项目记录和联系方式。我的主要兴趣是金融与技术，希望把金融知识、数据工具和 AI 协作方法结合起来，持续做出可验证、可复盘的小作品。
+你好，我是钟慧豪，深圳大学金融科技学院本科生。我关注金融场景中的软件开发、数据处理和研究自动化，并把想法做成可运行、可复用、可展示的项目。
 
-[查看我的课程项目]({{ '/projects/' | relative_url }})
+目前的核心方向是 Python 后端与数据分析、全栈应用开发、金融数据处理，以及以任务型 skill 为单位的 AI Agent 工作流。
 
-## Skills
+## 精选项目
 
-- 金融学习：关注金融科技、数字金融、风险控制和数据驱动的金融应用。
-- 技术工具：正在学习使用 GitHub、GitHub Pages、Markdown 和 AI Agent 完成规范化开发。
-- AI 协作：能够把目标拆成 PRD、设计说明、检查清单和验证证据，再让 AI 辅助执行。
-- 项目表达：重视内容真实、链接可访问、移动端可读和过程可追溯。
+### [FinWise 理财助手]({{ '/projects/finwise/' | relative_url }})
 
-## Projects
+独立开发的本地全栈个人理财应用。项目覆盖账户、交易、预算、资产、负债、目标和家庭协作，并提供趋势分析、账单导入和可选 AI 助手。
 
-- 个人网站规范化 AI 开发：基于 al-folio 模板，把个人定位、项目说明、规格文档、验证截图和 GitHub Pages 发布整理成一个可复核的课程作品。
-- 金融与技术学习记录：后续会继续补充金融科技、数据分析和 AI 协作相关的小项目，并明确标注项目状态。
+技术栈：Next.js、React、TypeScript、FastAPI、PostgreSQL、SQLAlchemy、Alembic、Docker Compose、Python、pandas、R。
 
-更多项目会放在 [Projects]({{ '/projects/' | relative_url }}) 页面中。
+### [论文处理 Agent]({{ '/projects/researcher-portrait-agent/' | relative_url }})
 
-## Contact
+面向学术研究流程的自动化 Agent，包含格式转换脚本、可复用 skill、结构化论文卡片和可验证的处理工作流。
 
-你可以通过 [GitHub](https://github.com/zj4566224-code) 或邮件 [zj4566224@gmail.com](mailto:zj4566224@gmail.com) 联系我。本站不会公开密码、课程邀请码、API Key、Token 或其他敏感信息。
+## 技术能力
+
+- 后端与数据：Python、SQL、FastAPI、PostgreSQL、SQLAlchemy、pandas
+- 前端与应用：Next.js、React、TypeScript、TanStack Query、Zustand
+- 工程与自动化：Docker Compose、Git、Alembic、任务型 AI Agent、文档与数据处理脚本
+- 金融场景：个人理财、金融产品数据整理、量化研究基础、回归与因子分析
+
+## 求职方向
+
+金融科技开发、Python 后端、数据分析、研究自动化、AI 应用与量化研究助理。
+
+[查看全部项目]({{ '/projects/' | relative_url }})
