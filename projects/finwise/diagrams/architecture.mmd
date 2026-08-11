@@ -1,0 +1,38 @@
+flowchart TD
+    subgraph Client["客户端层 — 用户直接看到和操作的界面"]
+        direction LR
+        Web["<b>Web 浏览器</b><br/>Next.js 16 渲染页面<br/>TanStack Query 缓存数据<br/>Recharts 画图表"]
+        Desktop["<b>Tauri 桌面壳</b><br/>把同一份前端<br/>打包成桌面 App"]
+    end
+
+    subgraph Backend["后端 API 层 — 处理业务逻辑、鉴权、取数"]
+        Routers["<b>路由层 routers/</b><br/>对外的 8 组 REST 接口<br/>登录 · 交易 · 预算 · 目标<br/>家庭 · 导入 · 分析 · AI"]
+        AISvc["<b>AI 服务 services/ai.py</b><br/>把自然语言交给大模型<br/>用 10 个工具按用户取真实数据<br/>(严格按 user_id 隔离)"]
+        Shared["<b>公共能力</b><br/>Pydantic 校验入参<br/>SQLAlchemy 操作数据库<br/>JWT 验证身份"]
+    end
+
+    LLM["<b>DeepSeek 大模型</b><br/>读懂'昨天午饭 35'<br/>返回结构化记账草稿<br/>(OpenAI 兼容协议)"]
+    DB[("<b>PostgreSQL 数据库</b><br/>存所有用户的<br/>账户 / 交易 / 预算 / 目标<br/>Alembic 管理表结构")]
+    Compose["<b>Docker Compose</b><br/>一键编排启动<br/>db + backend + frontend"]
+
+    Web -->|"① 携带 JWT 发起请求"| Routers
+    Desktop -->|"① 携带 JWT 发起请求"| Routers
+    Routers -->|"② 涉及 AI 时转交"| AISvc
+    Routers --> Shared
+    AISvc -->|"③ 发送提示词"| LLM
+    LLM -.->|"④ 回传 JSON 结果"| AISvc
+    Shared -->|"⑤ 读 / 写数据"| DB
+    Compose -.->|"容器编排"| Backend
+    Compose -.->|"容器编排"| DB
+
+    classDef clientStyle fill:#E8F1FC,stroke:#3B82C4,stroke-width:2px,color:#13395E
+    classDef backendStyle fill:#E9F6EC,stroke:#3FA45B,stroke-width:2px,color:#14532D
+    classDef aiStyle fill:#F4EAFB,stroke:#9B51C9,stroke-width:2px,color:#4A1D6B
+    classDef dataStyle fill:#FFF1E0,stroke:#E08A1E,stroke-width:2px,color:#7A3E00
+    classDef opsStyle fill:#F0F0F2,stroke:#8A8A8E,stroke-width:1.5px,color:#3A3A3C
+
+    class Web,Desktop clientStyle
+    class Routers,AISvc,Shared backendStyle
+    class LLM aiStyle
+    class DB dataStyle
+    class Compose opsStyle

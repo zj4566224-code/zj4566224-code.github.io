@@ -1,0 +1,37 @@
+flowchart TB
+    Start(["<b>① 用户说一句话</b> ·『昨天午饭 35』<br/>前端 QuickAddBar 发起 useParseTransaction<br/>POST /ai/parse-transaction(带 JWT)"])
+
+    Auth{"<b>安全关卡 ①</b> · JWT 有效?"}
+    AuthFail["返回 401 · 跳转登录"]
+
+    LLMStep["<b>② 后端取数 + 调用大模型</b><br/>build_user_context 取该用户分类/账户<br/>→ DeepSeek 用 tool_choice 强制结构化<br/>→ 口语转成 JSON 草稿(解析失败则提示换说法)"]
+    ParseFail["解析失败<br/>提示换种说法"]
+
+    Valid{"<b>安全关卡 ②</b> · category 属于当前用户?"}
+    ValidFail["返回 422 · 引导手动选分类<br/>(防 LLM 越权 / 编造)"]
+
+    Preview["<b>③ 前端预览卡</b> · 显示金额 / 分类 / 日期<br/>+ 置信度色带(<0.8 标橙提醒用户检查)"]
+
+    Commit(["<b>④ 用户点『确认入账』</b><br/>useCreateTransaction → POST /transactions<br/>→ SQLAlchemy 写入 PostgreSQL<br/>→ invalidateQueries 刷新列表/仪表盘/预算"])
+
+    Start --> Auth
+    Auth -->|"无效"| AuthFail
+    Auth -->|"有效"| LLMStep
+    LLMStep -->|"解析失败"| ParseFail
+    LLMStep -->|"解析成功"| Valid
+    Valid -->|"不属于"| ValidFail
+    Valid -->|"通过"| Preview --> Commit
+
+    classDef userStyle fill:#EDEAFB,stroke:#6E6CE8,stroke-width:2px,color:#312E81
+    classDef frontStyle fill:#E8F1FC,stroke:#3B82C4,stroke-width:2px,color:#13395E
+    classDef aiStyle fill:#F4EAFB,stroke:#9B51C9,stroke-width:2px,color:#4A1D6B
+    classDef dataStyle fill:#FFF1E0,stroke:#E08A1E,stroke-width:2px,color:#7A3E00
+    classDef checkStyle fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#78350F
+    classDef failStyle fill:#FDE8E8,stroke:#DC2626,stroke-width:1.5px,color:#7F1D1D
+
+    class Start userStyle
+    class Preview frontStyle
+    class LLMStep aiStyle
+    class Commit dataStyle
+    class Auth,Valid checkStyle
+    class AuthFail,ParseFail,ValidFail failStyle

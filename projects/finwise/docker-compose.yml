@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+
+  # ── 数据库 ──────────────────────────────────────
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: finwise_db
+      POSTGRES_USER: ${POSTGRES_USER:-finwise}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # host 5433 — host port 5432 in use by system Postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-finwise} -d finwise_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── 后端 FastAPI ─────────────────────────────────
+  backend:
+    build: ./finwise-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-finwise}:${POSTGRES_PASSWORD:-change-me}@db:5432/finwise_db
+      SECRET_KEY: ${SECRET_KEY:-change-me}
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 10080
+      # 同时允许 Docker 前端 (3000) 和 Tauri 桌面 app
+      CORS_ORIGINS: "http://localhost:3000,tauri://localhost,http://tauri.localhost"
+      # DeepSeek API(OpenAI 兼容),从 host 透传(未设置时 AI 接口返回友好错误)
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+    volumes:
+      - ./finwise-backend:/app
+
+  # ── 前端 Next.js ─────────────────────────────────
+  # 默认不启动:本地用 npm run dev 跑 3000,避免被容器抢端口。
+  # 需要时显式启:docker compose --profile dockered up frontend
+  frontend:
+    profiles: [dockered]
+    build: ./finwise
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes:
+      - ./finwise:/app
+      - /app/node_modules
+      - /app/.next
+
+volumes:
+  pgdata:
